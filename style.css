@@ -198,7 +198,7 @@ img.img-logo.img-fluid {
 .scroll-dot {
   position: absolute;
   bottom: 12px;
-  left: 50%;
+  left: 45%;
   color: var(--blue);
   font-size: 15px;
 }
@@ -239,14 +239,14 @@ img.img-logo.img-fluid {
 .value-card,
 .leader-card {
   height: 100%;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  background: #fff;
+  border: 1px solid #0868f7;
+  border-radius: 20px 58px 0px;
+  background: #e1edff;
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
-  gap: 14px;
-  box-shadow: 0 3px 15px rgba(20, 35, 55, 0.025);
+  gap: 6px;
+  box-shadow: 0 3px 15px rgb(63 140 243 / 62%);
   transition: 0.25s;
 }
 .service-card:hover,
@@ -289,10 +289,10 @@ img.img-logo.img-fluid {
   display: block;
   padding-top: 12px;
 }
-.service-card{
+.service-card {
   justify-content: space-between;
 }
-.srv-box{
+.srv-box {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -326,7 +326,7 @@ img.img-logo.img-fluid {
   list-style: none;
 }
 .check-list li {
-  font-size: 12px;
+  font-size: 16px;
   margin: 13px 0;
   color: #536179;
 }
@@ -351,12 +351,13 @@ img.img-logo.img-fluid {
   box-shadow: 0 10px 30px rgba(20, 35, 55, 0.07);
 }
 .consult-card h3 {
-  font-size: 13px;
+  font-size: 26px;
   font-weight: 800;
   margin: 0 0 5px;
+  color: #086af5;
 }
 .consult-card p {
-  font-size: 8px;
+  font-size: 14px;
 }
 .consult-card input,
 .consult-card textarea {
@@ -365,16 +366,27 @@ img.img-logo.img-fluid {
   background: #f4f5f7;
   border-radius: 7px;
   padding: 9px 11px;
-  font-size: 9px;
+  font-size: 12px;
   margin-bottom: 8px;
 }
 .consult-card textarea {
   height: 55px;
   resize: none;
 }
+.image-card {
+  background: #0868f730;
+  border: 1px solid #2781ff;
+  padding: 14px;
+  border-radius: 100px 8px;
+  box-shadow: 0 10px 30px rgb(23 116 223 / 46%);
+}
+.crdimg {
+  border-radius: 100px 8px;
+  border: 2px solid #ffffff;
+}
 .testimonial-card b {
-  color: var(--blue);
-  font-size: 16px;
+  color: #ffb101;
+  font-size: 22px;
 }
 .testimonial-card p {
   font-size: 14px;
@@ -384,23 +396,28 @@ img.img-logo.img-fluid {
 .testimonial-card strong,
 .testimonial-card small {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
 }
 .testimonial-card small {
-  color: #8993a5;
+  color: #484848;
 }
 
 section.cta-sec {
-  padding: 30px 0;
-  background: linear-gradient(110deg, #111b2f, #243452);
+  padding: 30px 30px 30px 70px;
+  background-image: url(assets/ctaimg.png);
+  background-color: #3361a9;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-size: cover;
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 .int-div {
   width: 80%;
-  align-items: center;
-  text-align: center;
+  text-align: left;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -1141,5 +1158,131 @@ section.cta-sec {
   }
   .mini-stats {
     gap: 18px;
+  }
+}
+
+/* ===== Services Carousel ===== */
+.services-carousel-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-carousel-viewport {
+  overflow: hidden;
+  padding: 12px 8px 20px;
+}
+
+.services-carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+/* Each card takes exactly 1/3 of the viewport (minus gaps) */
+.services-carousel-track .service-card {
+  flex: 0 0 calc((100% - 40px) / 3); /* 3 cards + 2 gaps of 20px */
+  min-width: 0;
+  height: auto;
+  min-height: 340px;
+}
+
+/* Center (active) card highlight */
+.services-carousel-track .service-card.is-center {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(8, 104, 247, 0.28);
+  z-index: 2;
+}
+
+.services-carousel-track .service-card.is-center .icon-box {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.services-carousel-track .service-card.is-center h3 {
+  color: #fff;
+}
+
+.services-carousel-track .service-card.is-center p {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.services-carousel-track .service-card.is-center a {
+  color: #fff;
+  border-top-color: rgba(255, 255, 255, 0.25);
+}
+
+.services-carousel-track .service-card.is-center a:hover {
+  opacity: 0.85;
+}
+
+/* Slightly dim the side cards */
+.services-carousel-track .service-card:not(.is-center) {
+  opacity: 0.78;
+}
+
+.services-carousel-track .service-card:not(.is-center):hover {
+  opacity: 1;
+}
+
+/* Arrows */
+.carousel-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.carousel-arrows button {
+  border: 1px solid var(--border);
+  background: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrows button:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(8, 104, 247, 0.25);
+}
+
+.carousel-arrows button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .services-carousel-track .service-card {
+    flex: 0 0 calc((100% - 20px) / 2); /* 2 cards on tablet */
+  }
+}
+
+@media (max-width: 767px) {
+  .services-carousel-track {
+    gap: 14px;
+  }
+  .services-carousel-track .service-card {
+    flex: 0 0 85%; /* almost full width on mobile */
+    min-height: 300px;
+  }
+  .services-carousel-track .service-card.is-center {
+    transform: translateY(-4px) scale(1.02);
   }
 }

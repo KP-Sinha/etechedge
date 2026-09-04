@@ -80,7 +80,9 @@
 
     <section class="home-hero">
       <div class="hero-network"></div>
-      <div class="container">
+      <div
+        class="container d-flex flex-column flex-lg-row align-items-center justify-content-between"
+      >
         <div class="hero-copy reveal">
           <span class="eyebrow pill">IT & DIGITAL SOLUTIONS</span>
           <h1>
@@ -104,6 +106,28 @@
           </div>
         </div>
         <div class="scroll-dot"><i class="bi bi-mouse"></i></div>
+        <div class="col-lg-6">
+          <div class="consult-card">
+            <h3>Ready to Start Your Project?</h3>
+            <p>
+              Tell us about your goals and we'll craft a tailored solution. No
+              commitment required.
+            </p>
+            <form class="quick-form">
+              <input required placeholder="Your Name" /><input
+                required
+                type="email"
+                placeholder="Work Email"
+              /><textarea
+                required
+                placeholder="Brief project description"
+              ></textarea
+              ><button class="btn btn-primary-custom w-100">
+                Get Free Consultation <i class="bi bi-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
     <section class="stats-strip">
@@ -135,114 +159,122 @@
             businesses to thrive in the digital era.
           </p>
         </div>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="service-card">
-              <div class="srv-box">
-                <div class="icon-box"><i class="bi bi-code-slash"></i></div>
-              <h3>Software Development</h3>
-              <p>
-                Software development is the process of creating, designing,
-                testing, and maintaining software applications or systems to
-                meet specific needs or solve problems. It involves various
-                stages, including planning, coding, The process also includes
-                ensuring the software is user-friendly, secure, and scalable.
-                Software development is essential in various industries,
-                enabling businesses to automate tasks, improve efficiency, and
-                deliver innovative solutions. It’s used in everything from
-                mobile apps and websites to enterprise systems and embedded
-                software.
-              </p>
+
+        <div class="services-carousel-wrapper">
+          <div class="services-carousel-viewport">
+            <div class="services-carousel-track" id="servicesTrack">
+              <!-- Card 1 -->
+              <div class="service-card">
+                <div class="srv-box">
+                  <div class="icon-box"><i class="bi bi-code-slash"></i></div>
+                  <h3>Software Development</h3>
+                  <p>
+                    Software development is the process of creating, designing,
+                    testing, and maintaining software applications or systems to
+                    meet specific needs or solve problems. It involves various
+                    stages, including planning, coding. The process also
+                    includes ensuring the software is user-friendly, secure, and
+                    scalable.
+                  </p>
+                </div>
+                <a href="services.html"
+                  >Learn more <i class="bi bi-arrow-right"></i
+                ></a>
               </div>
-              <a href="services.html"
-                >Learn more <i class="bi bi-arrow-right"></i
-              ></a>
+
+              <!-- Card 2 -->
+              <div class="service-card">
+                <div class="srv-box">
+                  <div class="icon-box"><i class="bi bi-phone"></i></div>
+                  <h3>Mobile App Development</h3>
+                  <p>
+                    Mobile development creates apps for smartphones, enhancing
+                    convenience and functionality.<br />
+                    Mobile app examples: Instagram, WhatsApp, Spotify, Uber,
+                    Google Maps, TikTok, Amazon, Facebook, Snapchat.
+                  </p>
+                </div>
+                <a href="services.html"
+                  >Learn more <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="service-card">
+                <div class="srv-box">
+                  <div class="icon-box"><i class="bi bi-globe2"></i></div>
+                  <h3>Web Development</h3>
+                  <p>
+                    Building, designing, and maintaining websites involves a
+                    combination of web content creation, web design, client-side
+                    and server-side scripting, and database management. Examples
+                    include e-commerce sites like Amazon and informational sites
+                    like Wikipedia.
+                  </p>
+                </div>
+                <a href="services.html"
+                  >Learn more <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="service-card">
+                <div class="srv-box">
+                  <div class="icon-box"><i class="bi bi-people"></i></div>
+                  <h3>CRM Software Development</h3>
+                  <p>
+                    It is the tool or technique that helps companies make a
+                    healthy relationship with their customers by organizing the
+                    data and streamlining interactions across every touchpoint.
+                  </p>
+                </div>
+                <a href="services.html"
+                  >Learn more <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="service-card">
+                <div class="srv-box">
+                  <div class="icon-box"><i class="bi bi-palette"></i></div>
+                  <h3>UI / UX Designing</h3>
+                  <p>
+                    It increases the user experience and customer satisfaction,
+                    which ultimately increases the number of customers,
+                    resulting in the growth of the business through thoughtful,
+                    user-centered design.
+                  </p>
+                </div>
+                <a href="services.html"
+                  >Learn more <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="service-card">
+                <div class="srv-box">
+                  <div class="icon-box"><i class="bi bi-megaphone"></i></div>
+                  <h3>Digital Marketing</h3>
+                  <p>
+                    It is a strategy that uses multiple channels to attract,
+                    engage and convert customers online — from SEO and social
+                    media to content marketing and paid campaigns.
+                  </p>
+                </div>
+                <a href="services.html"
+                  >Learn more <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="service-card">
-              <div class="srv-box">
-                <div class="icon-box"><i class="bi bi-phone"></i></div>
-              <h3>Mobile App Development</h3>
-              <p>
-                Mobile development creates apps for smartphones, enhancing
-                convenience and functionality. <br />Mobile app example:-
-                Instagram,WhatsApp, Spotify, Uber, Google Maps, TikTok ,Amazon,
-                Facebook, Snapchat.
-              </p>
-              </div>
-              <a href="services.html"
-                >Learn more <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card">
-              <div class="srv-box">
-                <div class="icon-box"><i class="bi bi-globe2"></i></div>
-              <h3>Web Development</h3>
-              <p>
-                Building, designing, and maintaining websites involves a
-                combination of web content creation,web design, client-side and
-                server-side scripting, and database management. Examples of
-                website are e-commerce websites like Amazon, informational
-                websites like Wikipedia, and portfolio websites like those of
-                individual creators showcasing their work.
-              </p>
-              </div>
-              <a href="services.html"
-                >Learn more <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card">
-              <div class="srv-box">
-                <div class="icon-box"><i class="bi bi-globe2"></i></div>
-              <h3>CRM Software Development</h3>
-              <p>
-                It is the tool or technique that helps companies make a healthy
-                relationship with their customers by organizing the data.
-              </p>
-              </div>
-              <a href="services.html"
-                >Learn more <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card">
-              <div class="srv-box">
-                <div class="icon-box"><i class="bi bi-globe2"></i></div>
-                <h3>UI / UX Designing</h3>
-                <p>
-                  It increases the user experience and customer satisfaction,
-                  which ultimately increases the number of customers, resulting
-                  in the growth of the business.
-                </p>
-              </div>
-              <a href="services.html"
-                >Learn more <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card">
-              <div class="srv-box">
-                <div class="icon-box"><i class="bi bi-globe2"></i></div>
-                <h3>Digital Marketing</h3>
-                <p>
-                  It is a strategy that uses multiple channels to attract engage
-                  and convert customers online.
-                </p>
-              </div>
-              <a href="services.html"
-                >Learn more <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
+
+          <div class="carousel-arrows">
+            <button type="button" id="servicesPrev" aria-label="Previous">
+              ←
+            </button>
+            <button type="button" id="servicesNext" aria-label="Next">→</button>
           </div>
         </div>
-        <div class="carousel-arrows"><button>←</button><button>→</button></div>
       </div>
     </section>
     <section class="section trust-section">
@@ -261,25 +293,12 @@
             </ul>
           </div>
           <div class="col-lg-6">
-            <div class="consult-card">
-              <h3>Ready to Start Your Project?</h3>
-              <p>
-                Tell us about your goals and we'll craft a tailored solution. No
-                commitment required.
-              </p>
-              <form class="quick-form">
-                <input required placeholder="Your Name" /><input
-                  required
-                  type="email"
-                  placeholder="Work Email"
-                /><textarea
-                  required
-                  placeholder="Brief project description"
-                ></textarea
-                ><button class="btn btn-primary-custom w-100">
-                  Get Free Consultation <i class="bi bi-arrow-right"></i>
-                </button>
-              </form>
+            <div class="image-card">
+              <img
+                src="assets/whyEtechedge.png"
+                alt="trust-illustration"
+                class="img-fluid crdimg"
+              />
             </div>
           </div>
         </div>
@@ -291,7 +310,7 @@
           <span class="section-label">CLIENT TESTIMONIALS</span>
           <h2>What Our Clients Say</h2>
           <p>
-            Don't just take our word for it — hear from the businesses we've
+            Don't just take our word for it, hear from the businesses we've
             helped transform.
           </p>
         </div>
@@ -352,7 +371,7 @@
         </div>
       </div>
     </section>
-
+<hr style="color: #0868f7;" />
     <footer class="footer">
       <div class="container">
         <div class="row g-5">

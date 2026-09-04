@@ -89,3 +89,128 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ===== Services Carousel (3 visible + center highlight + auto-scroll) =====
+(function initServicesCarousel() {
+  const track = document.getElementById("servicesTrack");
+  const prevBtn = document.getElementById("servicesPrev");
+  const nextBtn = document.getElementById("servicesNext");
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const cards = Array.from(track.querySelectorAll(".service-card"));
+  if (cards.length === 0) return;
+
+  let currentIndex = 0;
+  let cardsPerView = 3;
+  let autoplayTimer = null;
+  const AUTOPLAY_DELAY = 4000; // 4 seconds
+
+  function updateCardsPerView() {
+    if (window.innerWidth <= 767) cardsPerView = 1;
+    else if (window.innerWidth <= 991) cardsPerView = 2;
+    else cardsPerView = 3;
+  }
+
+  function updateCarousel() {
+    updateCardsPerView();
+
+    const maxIndex = Math.max(0, cards.length - cardsPerView);
+    currentIndex = Math.min(Math.max(0, currentIndex), maxIndex);
+
+    const cardWidth = cards[0].offsetWidth;
+    const gap = parseInt(getComputedStyle(track).gap) || 20;
+    const offset = currentIndex * (cardWidth + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+
+    // Highlight center card
+    cards.forEach(c => c.classList.remove("is-center"));
+
+    if (cardsPerView === 3) {
+      const centerIdx = currentIndex + 1;
+      if (cards[centerIdx]) cards[centerIdx].classList.add("is-center");
+    } else if (cardsPerView === 2) {
+      if (cards[currentIndex]) cards[currentIndex].classList.add("is-center");
+    } else {
+      if (cards[currentIndex]) cards[currentIndex].classList.add("is-center");
+    }
+
+    prevBtn.disabled = currentIndex <= 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+  }
+
+  function goNext() {
+    const maxIndex = Math.max(0, cards.length - cardsPerView);
+    if (currentIndex >= maxIndex) {
+      currentIndex = 0; // loop back to start
+    } else {
+      currentIndex++;
+    }
+    updateCarousel();
+  }
+
+  function goPrev() {
+    const maxIndex = Math.max(0, cards.length - cardsPerView);
+    if (currentIndex <= 0) {
+      currentIndex = maxIndex; // loop to end
+    } else {
+      currentIndex--;
+    }
+    updateCarousel();
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(goNext, AUTOPLAY_DELAY);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  // Buttons
+  prevBtn.addEventListener("click", () => {
+    goPrev();
+    startAutoplay(); // restart timer after manual click
+  });
+
+  nextBtn.addEventListener("click", () => {
+    goNext();
+    startAutoplay();
+  });
+
+  // Pause on hover (nice UX)
+  const wrapper = track.closest(".services-carousel-wrapper");
+  if (wrapper) {
+    wrapper.addEventListener("mouseenter", stopAutoplay);
+    wrapper.addEventListener("mouseleave", startAutoplay);
+  }
+
+  // Keyboard
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      goPrev();
+      startAutoplay();
+    }
+    if (e.key === "ArrowRight") {
+      goNext();
+      startAutoplay();
+    }
+  });
+
+  // Resize
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateCarousel();
+      startAutoplay();
+    }, 150);
+  });
+
+  // Init
+  updateCarousel();
+  startAutoplay();
+})();
